@@ -1,0 +1,450 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P:regular);
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P:regular);
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+aside,
+nav,
+footer,
+header,
+section {
+  display: block;
+}
+
+html {
+  font-size: 16px;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+}
+
+body {
+  line-height: 1;
+  font-family: "Press+Start+2P";
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: "Press+Start+2P";
+  font-size: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: inherit;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+/*
+&::-webkit-scrollbar {
+	display: none;
+}
+*/
+body {
+  color: #000;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.wrapper {
+  overflow: hidden;
+}
+
+.-container {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+@media (max-width: 1170px) {
+  .-container {
+    max-width: 950px;
+  }
+}
+@media (max-width: 992px) {
+  .-container {
+    max-width: 750px;
+  }
+}
+@media (max-width: 768px) {
+  .-container {
+    max-width: none;
+    min-width: 320px;
+  }
+}
+
+.popup {
+  -webkit-overflow-scrolling: touch;
+  z-index: 100;
+  padding: 30px 10px;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: visibility 0.8s ease 0s;
+  visibility: hidden;
+}
+.popup::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease 0s;
+}
+.popup.show {
+  visibility: visible;
+  overflow: auto;
+}
+.popup.show::before {
+  opacity: 1;
+}
+.popup.show .popup__body {
+  transform: scale(1);
+}
+.popup._active {
+  overflow: auto;
+  visibility: visible;
+}
+.popup._active::before {
+  opacity: 1;
+}
+.popup._active .popup__body {
+  transition: all 0.3s ease 0.2s;
+  transform: scale(1);
+}
+.popup__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup__body {
+  transform: scale(0);
+  transition: all 0.3s ease 0s;
+  background-color: #fff;
+  padding: 50px;
+  width: 100%;
+  max-width: 800px;
+}
+.popup__close {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  cursor: pointer;
+  z-index: 30;
+  background: url("../img/icons/close.svg") 0 0 no-repeat;
+}
+
+/*
+//Burger
+.icon-menu {
+	display: none;
+	@media (max-width: $md3+px) {
+		display: block;
+		position: absolute;
+		top: 18px;
+		right: 10px;
+		width: 30px;
+		height: 18px;
+		cursor: pointer;
+		z-index: 5;
+		span {
+			transition: all 0.3s ease 0s;
+			top: calc(50% - 1px);
+			left: 0px;
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: #000;
+			&:first-child {
+				top: 0px;
+			}
+			&:last-child {
+				top: auto;
+				bottom: 0px;
+			}
+		}
+		&._active {
+			span {
+				transform: scale(0);
+				&:first-child {
+					transform: rotate(-45deg);
+					top: calc(50% - 1px);
+				}
+				&:last-child {
+					transform: rotate(45deg);
+					bottom: calc(50% - 1px);
+				}
+			}
+		}
+	}
+}
+*/
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
+}
+
+.animation {
+  flex: 1 0 100%;
+  position: relative;
+  overflow: hidden;
+}
+.animation__list {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.animation__bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url(../img/bg/пейзаж2.jpg) 100% 100%/cover no-repeat;
+}
+.animation__ship {
+  position: absolute;
+}
+.animation__ship_1 {
+  position: absolute;
+  top: 17%;
+  left: 56%;
+  width: 1%;
+  height: 100%;
+  opacity: 0.7;
+  background: url("../img/ships/кораблик3-removebg-preview.png") 0 0/100% no-repeat;
+  animation: ship-1 20s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards 1s;
+}
+.animation__ship_2 {
+  position: absolute;
+  top: 15%;
+  left: 80%;
+  width: 3.5%;
+  height: 0%;
+  background: url(../img/ships/boat-removebg-preview.png) 0 0/100% no-repeat;
+  transform: scale(-1, 1);
+  animation: ship-2 20s ease-in-out infinite reverse 12s;
+}
+.animation__ship_3 {
+  position: absolute;
+  top: 12%;
+  left: 100%;
+  width: 3%;
+  height: 100%;
+  background: url(../img/ships/кораблик-removebg-preview.png) 0 0/100% no-repeat;
+  animation: rot 3s linear infinite alternate running none 0s, ship-3 10s cubic-bezier(0.895, 0.03, 0.685, 0.22) running forwards 1s;
+}
+.animation__ship_3:hover {
+  cursor: pointer;
+  animation-play-state: paused;
+}
+.animation__girl {
+  position: absolute;
+  top: 80%;
+  left: -20%;
+  width: 20%;
+  height: 100%;
+  background: url("../img/girl/девушка-removebg-preview.png") 0 0/100% no-repeat;
+  animation: girl 8s linear forwards 1s;
+}
+.animation__tree {
+  position: absolute;
+  transform-origin: bottom center;
+}
+.animation__tree_1 {
+  background: url(../img/trees/пальма1-removebg-preview.png) 0 0 no-repeat;
+  height: 100%;
+  width: 50%;
+  top: 45%;
+  left: 79%;
+  animation: tree-1 1.5s linear infinite alternate 0s;
+}
+.animation__tree_2 {
+  background: url(../img/trees/пальма2-removebg-preview.png) 0 0 no-repeat;
+  height: 100%;
+  width: 50%;
+  top: 15%;
+  left: 58%;
+  transform: scale(-1, 1);
+}
+.animation__tree_3 {
+  background: url(../img/trees/пальма1-removebg-preview.png) 0 0 no-repeat;
+  height: 100%;
+  width: 50%;
+  top: 35%;
+  right: 84%;
+  transform: scale(-1, 1);
+}
+.animation__tree_4 {
+  background: url(../img/trees/пальма2-removebg-preview.png) 0 0 no-repeat;
+  height: 100%;
+  width: 50%;
+  top: 45%;
+  left: 0%;
+  animation: tree-1 1s linear infinite alternate 0s;
+}
+.animation__text {
+  position: relative;
+  color: #115ae2;
+  top: 5%;
+  left: 0%;
+  font-size: 0px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.5;
+  text-shadow: 5px 5px 5px #07ddc0;
+  animation: text 5s forwards 15s;
+  transform: skew-origin(center);
+  transform: skale(1, 1);
+}
+
+.animation__list li {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+@keyframes ship-1 {
+  100% {
+    opacity: 1;
+    top: 16%;
+    left: 2%;
+    width: 15%;
+    height: 100%;
+  }
+}
+@keyframes ship-2 {
+  50% {
+    height: 100%;
+  }
+  100% {
+    left: 20%;
+  }
+}
+@keyframes ship-3 {
+  100% {
+    top: 2%;
+    left: 55%;
+    width: 25%;
+  }
+}
+@keyframes text {
+  100% {
+    transform: rotate(-360deg);
+    font-size: 110px;
+    transform: skale(200, 200);
+  }
+}
+@keyframes tree-1 {
+  0% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(2deg);
+  }
+}
+@keyframes tree-4 {
+  0% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(-3deg);
+  }
+}
+@keyframes girl {
+  100% {
+    top: 40%;
+    left: 35%;
+  }
+}
+@keyframes tree-4 {
+  0% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(2deg);
+  }
+}
+@keyframes rot {
+  0% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(2deg);
+  }
+}
